@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 10/06/2013 06:00:09 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="hoteles.model.Habitacionxhotel" table="habitacionxhotel" catalog="hotel">
+        <id name="idHabitacion" type="java.lang.Integer">
+            <column name="idHabitacion" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="estadohabitacion" class="hoteles.model.Estadohabitacion" fetch="select">
+            <column name="estadoHabitacion_idEstadoHabitacion" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tipohabitacion" class="hoteles.model.Tipohabitacion" fetch="select">
+            <column name="tipohabitacion_idTipoHabitacion" not-null="true" />
+        </many-to-one>
+        <many-to-one name="hoteles" class="hoteles.model.Hoteles" fetch="select">
+            <column name="hoteles_idHotel" not-null="true" />
+        </many-to-one>
+        <property name="numeroHabitacion" type="int">
+            <column name="numeroHabitacion" not-null="true" />
+        </property>
+        <set name="suplementoses" inverse="false" table="suplementos_has_habitacionxhotel">
+            <key>
+                <column name="HabitacionXHotel_idHabitacion" not-null="true" />
+            </key>
+            <many-to-many entity-name="hoteles.model.Suplementos">
+                <column name="suplementos_idSuplementos" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="estancias" inverse="true">
+            <key>
+                <column name="HabitacionXHotel_idHabitacion" not-null="true" />
+            </key>
+            <one-to-many class="hoteles.model.Estancia" />
+        </set>
+    </class>
+</hibernate-mapping>

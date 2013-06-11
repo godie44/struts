@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 10/06/2013 06:00:09 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="hoteles.model.Hoteles" table="hoteles" catalog="hotel">
+        <id name="idHotel" type="java.lang.Integer">
+            <column name="idHotel" />
+            <generator class="identity" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre" length="100" not-null="true" />
+        </property>
+        <property name="ubicacion" type="string">
+            <column name="ubicacion" length="300" not-null="true" />
+        </property>
+        <set name="reservas" inverse="true">
+            <key>
+                <column name="hoteles_idHotel" not-null="true" />
+            </key>
+            <one-to-many class="hoteles.model.Reserva" />
+        </set>
+        <set name="habitacionxhotels" inverse="true">
+            <key>
+                <column name="hoteles_idHotel" not-null="true" />
+            </key>
+            <one-to-many class="hoteles.model.Habitacionxhotel" />
+        </set>
+        <set name="empleadoses" inverse="true">
+            <key>
+                <column name="hoteles_idHotel" not-null="true" />
+            </key>
+            <one-to-many class="hoteles.model.Empleados" />
+        </set>
+    </class>
+</hibernate-mapping>

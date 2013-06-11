@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://190.7.192.3:3306/hotel?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">D4t4L0t3d</property>
+    <mapping resource="hoteles/model/Hoteles.hbm.xml"/>
+    <mapping resource="hoteles/model/hibernate.hbm.xml"/>
+    <mapping resource="hoteles/model/Clientes.hbm.xml"/>
+    <mapping resource="hoteles/model/Empleados.hbm.xml"/>
+    <mapping resource="hoteles/model/Reserva.hbm.xml"/>
+    <mapping resource="hoteles/model/Factura.hbm.xml"/>
+    <mapping resource="hoteles/model/Tipohabitacion.hbm.xml"/>
+    <mapping resource="hoteles/model/Estadohabitacion.hbm.xml"/>
+    <mapping resource="hoteles/model/Habitacionxhotel.hbm.xml"/>
+    <mapping resource="hoteles/model/Estancia.hbm.xml"/>
+    <mapping/>
+    <mapping resource="hoteles/model/Suplementos.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 10/06/2013 06:00:09 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="hoteles.model.Reserva" table="reserva" catalog="hotel">
+        <id name="idReserva" type="java.lang.Integer">
+            <column name="idReserva" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="clientes" class="hoteles.model.Clientes" fetch="select">
+            <column name="clientes_idCliente" not-null="true" />
+        </many-to-one>
+        <many-to-one name="empleados" class="hoteles.model.Empleados" fetch="select">
+            <column name="empleados_idEmpleado" not-null="true" />
+        </many-to-one>
+        <many-to-one name="hoteles" class="hoteles.model.Hoteles" fetch="select">
+            <column name="hoteles_idHotel" not-null="true" />
+        </many-to-one>
+        <property name="idHabitacion" type="int">
+            <column name="idHabitacion" not-null="true" />
+        </property>
+        <property name="tiempoEntrada" type="timestamp">
+            <column name="tiempoEntrada" length="19" not-null="true" />
+        </property>
+        <property name="tiempoSalida" type="timestamp">
+            <column name="tiempoSalida" length="19" not-null="true" />
+        </property>
+        <property name="adelanto" type="double">
+            <column name="adelanto" precision="22" scale="0" not-null="true" />
+        </property>
+        <set name="facturas" inverse="true">
+            <key>
+                <column name="reserva_idReserva" not-null="true" />
+            </key>
+            <one-to-many class="hoteles.model.Factura" />
+        </set>
+        <set name="estancias" inverse="true">
+            <key>
+                <column name="reserva_idReserva" not-null="true" />
+            </key>
+            <one-to-many class="hoteles.model.Estancia" />
+        </set>
+    </class>
+</hibernate-mapping>

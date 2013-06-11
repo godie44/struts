@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 10/06/2013 06:00:09 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="hoteles.model.Clientes" table="clientes" catalog="hotel">
+        <id name="idCliente" type="java.lang.Integer">
+            <column name="idCliente" />
+            <generator class="identity" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre" length="100" not-null="true" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="direccion" length="400" not-null="true" />
+        </property>
+        <property name="telefono" type="string">
+            <column name="telefono" length="45" not-null="true" />
+        </property>
+        <property name="celular" type="string">
+            <column name="celular" length="45" not-null="true" />
+        </property>
+        <set name="reservas" inverse="true">
+            <key>
+                <column name="clientes_idCliente" not-null="true" />
+            </key>
+            <one-to-many class="hoteles.model.Reserva" />
+        </set>
+    </class>
+</hibernate-mapping>
