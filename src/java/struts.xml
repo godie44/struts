@@ -5,15 +5,15 @@
 
 <struts> 
     <constant name="struts.devMode" value="true"></constant>  
-    <package name="transacciones" extends="struts-default">
+    <package name="hoteleses" extends="struts-default">
         
-        <action name="validar" class="transacciones.controller.ClientesController" method="Valida">
+        <action name="validar" class="hoteles.controller.HotelesController" method="Valida">
             <result name="exito">/View/inicio.jsp</result>
             <result name="error">/View/index.jsp</result>
         </action>
         
-        <action name="regempleado" class="transacciones.controller.ClientesController" method="RegEmpleado">
-            <result name="exito">/View/inicio.jsp</result>
+        <action name="goReserva" class="hoteles.controller.HotelesController" method="goReservar">
+            <result name="exito">/View/reservar.jsp</result>
             
         </action>
         

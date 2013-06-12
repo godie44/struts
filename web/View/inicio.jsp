@@ -29,7 +29,7 @@
                     <dt>Acciones</dt>
                     <dd>
                         <sj:a id="ajaxHoteles" 
-                              href="#" 
+                              href="goReserva" 
                               targets="infor" 
                               indicator="indicator" 
                               >
@@ -38,7 +38,7 @@
                         <br/>
                                                 
                     </dd>
-                    <dt>Consejosos</dt>
+                    <dt>Consejos</dt>
                     <dd>
                         Siempre atienda con una sonrisa al cliente.
                     </dd>

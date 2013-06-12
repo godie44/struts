@@ -53,4 +53,8 @@ public class HotelesController implements ModelDriven<Hoteles>{
         return "exito";
     }
     
+    public String goReservar(){
+        return "exito";
+    }
+    
 }
