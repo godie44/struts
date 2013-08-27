@@ -35,7 +35,7 @@ public class HotelesAd implements IHoteles{
         }
         catch(Exception ex)
         {
-            String exc = ex.toString();
+            System.out.println("ESTE ES EL ERROR!!!!"+ex.toString());
             return null;
             
         }

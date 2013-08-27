@@ -4,7 +4,7 @@
  */
 package hoteles.AD;
 
-import java.util.List;
+import java.util.*;
 import hoteles.model.Empleados;
 import hoteles.model.Clientes;
 import hoteles.model.Hoteles;

@@ -17,7 +17,7 @@ import java.util.*;
  *
  * @author diego
  */
-public class HotelesController implements ModelDriven<Hoteles>{
+public class HotelesController implements ModelDriven<Empleados>{
     
     Map sesionVar = ActionContext.getContext().getSession();
     Hoteles hotel = new Hoteles();
@@ -28,22 +28,26 @@ public class HotelesController implements ModelDriven<Hoteles>{
     String msj = "";
     
     @Override
-    public Hoteles getModel() {
-        return hotel;
+    public Empleados getModel() {
+        return empleado;
     }
     
     
     public String Valida()
     {
+        try{
         Empleados emp = hotelesAd.VerificaUsuario(empleado);
         if(emp != null)
         {
         sesionVar.put("empleado", empleado.getUsuario()); 
-        msj = "Bienvenido a su sucursal electronica favorita.";
+        msj = "Bienvenido al Sistema de administracion Hotelera.";
         return "exito";}
         else{
-            msj = "No se encontro un usario con esas credenciales";
+            msj = "No se encontro un usuario con esas credenciales";
             return "error";}
+        }catch(Exception ex)
+        {System.out.println("AQUI ESTA EL ERROR!!!!!------: "+ex.getMessage());
+        return "error";}
     }
     
     public String RegEmpleado(){

@@ -5,7 +5,7 @@
 
 <struts> 
     <constant name="struts.devMode" value="true"></constant>  
-    <package name="hoteleses" extends="struts-default">
+    <package name="hoteles" extends="struts-default">
         
         <action name="validar" class="hoteles.controller.HotelesController" method="Valida">
             <result name="exito">/View/inicio.jsp</result>

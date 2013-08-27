@@ -22,7 +22,17 @@ public class Empleados  implements java.io.Serializable {
      private Set reservas = new HashSet(0);
 
     public Empleados() {
+        this.hoteles = null;
+       this.nombre = "";
+       this.direccion = "";
+       this.cedula = "";
+       this.titulo = "";
+       this.usuario = "";
+       this.password = "";
+       this.reservas = null;
     }
+    
+    
 
 	
     public Empleados(Hoteles hoteles, String nombre, String direccion, String cedula, String titulo, String usuario) {

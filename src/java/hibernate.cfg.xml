@@ -7,8 +7,8 @@
     <property name="hibernate.connection.url">jdbc:mysql://190.7.192.3:3306/hotel?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">D4t4L0t3d</property>
+    <property name="hibernate.current_session_context_class">thread</property>
     <mapping resource="hoteles/model/Hoteles.hbm.xml"/>
-    <mapping resource="hoteles/model/hibernate.hbm.xml"/>
     <mapping resource="hoteles/model/Clientes.hbm.xml"/>
     <mapping resource="hoteles/model/Empleados.hbm.xml"/>
     <mapping resource="hoteles/model/Reserva.hbm.xml"/>
@@ -17,7 +17,6 @@
     <mapping resource="hoteles/model/Estadohabitacion.hbm.xml"/>
     <mapping resource="hoteles/model/Habitacionxhotel.hbm.xml"/>
     <mapping resource="hoteles/model/Estancia.hbm.xml"/>
-    <mapping/>
     <mapping resource="hoteles/model/Suplementos.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
