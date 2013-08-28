@@ -20,11 +20,11 @@
         <property name="numeroHabitacion" type="int">
             <column name="numeroHabitacion" not-null="true" />
         </property>
-        <set name="suplementoses" inverse="false" table="suplementos_has_habitacionxhotel">
+        <set  name="suplementoses" inverse="false" table="suplementos_has_habitacionxhotel">
             <key>
                 <column name="HabitacionXHotel_idHabitacion" not-null="true" />
             </key>
-            <many-to-many entity-name="hoteles.model.Suplementos">
+            <many-to-many class="hoteles.model.Suplementos">
                 <column name="suplementos_idSuplementos" not-null="true" />
             </many-to-many>
         </set>

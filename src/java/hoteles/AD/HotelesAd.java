@@ -10,6 +10,7 @@ import org.hibernate.Transaction;
 import hoteles.model.Hoteles;
 import hoteles.model.Empleados;
 import hoteles.model.Habitacionxhotel;
+import hoteles.model.Clientes;
 
 
 /**
@@ -80,6 +81,18 @@ public class HotelesAd implements IHoteles{
             return true;
         }
         catch(Exception ex){return false;}
+    }
+    
+    @Override
+    public boolean AgregarCliente(Clientes _cliente)
+    {
+        try{
+            sesion = HibernateUtil.getSessionFactory().getCurrentSession();
+            transaccion = sesion.beginTransaction();
+            sesion.save(_cliente);
+            transaccion.commit();
+            return true;
+        }catch(Exception ex){System.out.println("Error insertando cliente: "+ex.getMessage());return false;}
     }
     
     

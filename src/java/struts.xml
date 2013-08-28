@@ -12,10 +12,18 @@
             <result name="error">/View/index.jsp</result>
         </action>
         
-        <action name="goReserva" class="hoteles.controller.HotelesController" method="goReservar">
-            <result name="exito">/View/reservar.jsp</result>
-            
+        <action name="goCliente" class="hoteles.controller.HotelesController" method="goCliente">
+            <result name="exito">/View/reservar.jsp</result> 
         </action>
+        
+        <action name="goReserva" class="hoteles.controller.HotelesController" method="goCliente">
+            <result name="exito">/View/reservar.jsp</result> 
+        </action>
+        
+        <action name="insertar" class="hoteles.controller.HotelesController" method="RegCliente"> 
+            <result name ="exito">/View/inicio.jsp</result>
+            <result name ="fallo">/View/inicio.jsp</result>
+            </action>
         
         </package>
 </struts>

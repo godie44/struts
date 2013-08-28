@@ -17,6 +17,7 @@ import hoteles.model.Estancia;
  */
 public interface IHoteles {
     public boolean Agregar(Empleados _empleado);
+    public boolean AgregarCliente(Clientes _cliente);
     public Empleados VerificaUsuario(Empleados _empleado);
     public List<Empleados> ListaUsuarios();
     public List<Hoteles> ListaHoteles();

@@ -17,23 +17,13 @@
         <script type='text/javascript' src='${pageContext.request.contextPath}/View/infogrid.js'></script>   
     </head>
     <body>
-        <s:form action="reservar">
-            <s:select 
-                
-                label="Tarjeta"  
-                list="listaTarjetas"  
-                name="tarjeta.numero" 
-                listValue="numero"  
-                listKey="numero"
-                emptyOption="false"  
-                headerKey="None"  
-                headerValue="None"
-                
-                />
-            
-            <s:textfield label="Monto" name="transac.monto"/>
-            <s:textfield label="Descripcion" name="transac.descripcion"/>
-            <s:submit label="prueba de boton" value="Depositar"/>
+        <s:form action="insertar">
+                        
+            <s:textfield label="Nombre:" name="cliente.nombre"/>
+            <s:textfield label="Direccion:" name="cliente.direccion"/>
+            <s:textfield label="Telefono residencia:" name="cliente.telefono"/>
+            <s:textfield label="Celular:" name="cliente.celular"/>
+            <s:submit label="Ingresar Cliente" value="Añadir"/>
             
         </s:form>
     </body>

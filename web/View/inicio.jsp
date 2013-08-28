@@ -29,6 +29,15 @@
                     <dt>Acciones</dt>
                     <dd>
                         <sj:a id="ajaxHoteles" 
+                              href="goCliente" 
+                              targets="infor" 
+                              indicator="indicator" 
+                              >
+                            Clientes
+                        </sj:a>
+                        <br/>
+                                                
+                        <sj:a id="ajaxHoteles" 
                               href="goReserva" 
                               targets="infor" 
                               indicator="indicator" 
