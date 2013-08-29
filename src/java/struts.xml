@@ -16,8 +16,8 @@
             <result name="exito">/View/reservar.jsp</result> 
         </action>
         
-        <action name="goReserva" class="hoteles.controller.HotelesController" method="goCliente">
-            <result name="exito">/View/reservar.jsp</result> 
+        <action name="goReserva" class="hoteles.controller.HotelesController" method="goReserva">
+            <result name="exito">/View/reservacion.jsp</result> 
         </action>
         
         <action name="insertar" class="hoteles.controller.HotelesController" method="RegCliente"> 

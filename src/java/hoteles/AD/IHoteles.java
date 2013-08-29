@@ -21,4 +21,5 @@ public interface IHoteles {
     public Empleados VerificaUsuario(Empleados _empleado);
     public List<Empleados> ListaUsuarios();
     public List<Hoteles> ListaHoteles();
+    public ArrayList<Clientes> ListaClientes();
 }

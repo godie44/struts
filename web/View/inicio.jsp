@@ -28,7 +28,7 @@
                 <dl>
                     <dt>Acciones</dt>
                     <dd>
-                        <sj:a id="ajaxHoteles" 
+                        <sj:a id="ajaxClientes" 
                               href="goCliente" 
                               targets="infor" 
                               indicator="indicator" 
@@ -37,7 +37,7 @@
                         </sj:a>
                         <br/>
                                                 
-                        <sj:a id="ajaxHoteles" 
+                        <sj:a id="ajaxHReservas" 
                               href="goReserva" 
                               targets="infor" 
                               indicator="indicator" 
@@ -56,7 +56,8 @@
             </div>
 
             <center>
-                <div id="infor">
+                
+                <div id="infor" style="margin-top: 75px">
                     <s:label value="%{msj}"/>
                 </div></center>
         </div>

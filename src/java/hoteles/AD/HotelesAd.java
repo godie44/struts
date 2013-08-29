@@ -45,19 +45,32 @@ public class HotelesAd implements IHoteles{
     @Override
     public List<Empleados> ListaUsuarios()
     {
-        List<Empleados> empleados = null;
-        
-        return empleados;
+        try{
+        sesion = HibernateUtil.getSessionFactory().getCurrentSession();
+        transaccion = sesion.beginTransaction();  
+        List<Empleados> emp;
+        emp =sesion.createQuery("from Empleados").list();
+        //_hoteles.setHoteless(h);
+        //sesion.save(h);
+        transaccion.commit();
+          
+            return emp;
+        }
+        catch(Exception ex)
+        {
+            String x ="";
+            return null;
+        }
     }
     
     @Override
-    public List<Hoteles> ListaHoteles()
+    public ArrayList<Hoteles> ListaHoteles()
     {
         try{
         sesion = HibernateUtil.getSessionFactory().getCurrentSession();
         transaccion = sesion.beginTransaction();  
-        List<Hoteles> h;
-        h =sesion.createQuery("from Hoteles").list();
+        ArrayList<Hoteles> h;
+        h =(ArrayList<Hoteles>)sesion.createQuery("from Hoteles").list();
         //_hoteles.setHoteless(h);
         //sesion.save(h);
         transaccion.commit();
@@ -94,6 +107,22 @@ public class HotelesAd implements IHoteles{
             return true;
         }catch(Exception ex){System.out.println("Error insertando cliente: "+ex.getMessage());return false;}
     }
+    
+    @Override
+    public ArrayList<Clientes> ListaClientes()
+    {
+        try{
+            Session sesionl;
+            Transaction transac;
+            sesionl = HibernateUtil.getSessionFactory().getCurrentSession();
+            transac = sesionl.beginTransaction();
+            
+            return (ArrayList<Clientes>)sesionl.createQuery("from Clientes").list();
+            }
+        catch(Exception ex){return null;}
+    }
+    
+    
     
     
     

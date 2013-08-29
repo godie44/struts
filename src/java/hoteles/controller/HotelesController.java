@@ -8,6 +8,7 @@ import com.opensymphony.xwork2.ActionContext;
 import hoteles.model.Hoteles;
 import hoteles.model.Clientes;
 import hoteles.model.Empleados;
+import hoteles.model.Reserva;
 import hoteles.AD.HotelesAd;
 
 import com.opensymphony.xwork2.ModelDriven;
@@ -23,14 +24,53 @@ public class HotelesController implements ModelDriven<Empleados>{
     Hoteles hotel = new Hoteles();
     Empleados empleado = new Empleados();
     Clientes cliente = new Clientes();
+    Reserva reserva = new Reserva();
+    
+    int idHotel=0;
+
+    
+    
+    ArrayList<Clientes> listaClientes = new ArrayList();
+    ArrayList<Hoteles> listaHoteles = new ArrayList();
+    ArrayList<Empleados> listaEmpleados = new ArrayList();
     
     HotelesAd hotelesAd = new HotelesAd();
     
-    String msj = "";
+    String msj = "Buenos dias";
     
     @Override
     public Empleados getModel() {
         return empleado;
+    }
+    
+    
+    public int getIdHotel() {
+        return idHotel;
+    }
+
+    public void setIdHotel(int idHotel) {
+        this.idHotel = idHotel;
+    }
+    
+    
+    public String getMsj() {
+        return msj;
+    }
+    
+    public Reserva getReserva(){
+        return reserva;
+    }
+    
+    public void setReserva(Reserva _reserva){
+        this.reserva = _reserva;        
+    }
+    
+    public ArrayList<Clientes> getListaClientes(){
+        return listaClientes;
+    }
+    
+    public ArrayList<Hoteles> getListaHoteles(){
+        return listaHoteles;
     }
     
     
@@ -72,7 +112,27 @@ public class HotelesController implements ModelDriven<Empleados>{
         
     }
     
+    public String ListaHoteles()
+    {
+        //List<Usuario> listClientes=null;
+        try
+        {
+            listaHoteles = hotelesAd.ListaHoteles();
+        }
+        catch(Exception e)
+        {
+            msj = "Error al consultar por los usuarios.";
+        }
+        return "fin";
+    }
+    
     public String goCliente(){
+        return "exito";
+    }
+    
+    public String goReserva(){
+        listaHoteles = hotelesAd.ListaHoteles();
+        listaClientes = hotelesAd.ListaClientes();
         return "exito";
     }
     
