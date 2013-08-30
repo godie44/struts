@@ -51,8 +51,8 @@
                 
                 accesskey=""/>
             <s:textfield label="Direccion:" name="cliente.direccion"/>
-            <sj:datepicker id="tiempoEntrada" label="Fecha entrada:" name="reserva.tiempoEntrada"/>
-            <sj:datepicker id="tiempoSalida" label="Fecha salida:" name="reserva.tiempoSalida"/>
+            <sj:datepicker id="tiempoEntrada" label="Fecha entrada:" name="tiempoEntrada" />
+            <sj:datepicker id="tiempoSalida" label="Fecha salida:" name="tiempoSalida"/>
             <s:textfield label="Adelanto:" name="reserva.adelanto"/>
             <s:submit label="Reservar" value="Añadir"/>
             

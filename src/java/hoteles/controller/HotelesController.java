@@ -13,6 +13,7 @@ import hoteles.model.Habitacionxhotel;
 import hoteles.AD.HotelesAd;
 
 import com.opensymphony.xwork2.ModelDriven;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
@@ -35,6 +36,8 @@ public class HotelesController implements ModelDriven<Empleados>{
     String nombreEmpleado = "";
     int idEmpleado=0;
     int idCliente = 0;
+    String tiempoEntrada="";
+    String tiempoSalida ="";
     
     
     ArrayList<Clientes> listaClientes = new ArrayList();
@@ -55,6 +58,24 @@ public class HotelesController implements ModelDriven<Empleados>{
         return nombreHotel;
     }
 
+    public String getTiempoEntrada() {
+        return tiempoEntrada;
+    }
+
+    public void setTiempoEntrada(String tiempoEntrada) {
+        this.tiempoEntrada = tiempoEntrada;
+    }
+
+    public String getTiempoSalida() {
+        return tiempoSalida;
+    }
+
+    public void setTiempoSalida(String tiempoSalida) {
+        this.tiempoSalida = tiempoSalida;
+    }
+
+    
+    
     public void setNombreHotel(String nombreHotel) {
         this.nombreHotel = nombreHotel;
     }
@@ -196,7 +217,10 @@ public class HotelesController implements ModelDriven<Empleados>{
     public String Reservar(){
         try{
         Date hoy = new Date();
-        hoy.setDate(Calendar.DATE);
+        SimpleDateFormat formato  = new SimpleDateFormat("MM/dd/yyyy");
+        reserva.setTiempoEntrada(formato.parse(tiempoEntrada));
+        reserva.setTiempoSalida(formato.parse(tiempoSalida));
+        //hoy.setDate(Calendar.DATE);
         if(reserva.getTiempoEntrada().after(hoy) && reserva.getTiempoSalida().after(reserva.getTiempoEntrada()))
         {
         Reserva est = hotelesAd.Reservar(reserva,(Integer)ActionContext.getContext().getSession().get("idHotel"),(Integer)ActionContext.getContext().getSession().get("idEmpleado"),idCliente);
