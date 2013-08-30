@@ -24,6 +24,10 @@
             <result name ="exito">/View/inicio.jsp</result>
             <result name ="fallo">/View/inicio.jsp</result>
             </action>
-        
+         <action name="reservar" class="hoteles.controller.HotelesController" method="Reservar"> 
+            <result name ="exito">/View/inicio.jsp</result>
+            <result name ="fallo">/View/inicio.jsp</result>
+            <result name="error">/View/reservacion.jsp</result> 
+            </action>
         </package>
 </struts>

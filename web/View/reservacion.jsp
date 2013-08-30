@@ -9,34 +9,27 @@
 <html>
     <%@taglib uri="/struts-tags" prefix="s" %>
     <%@taglib uri="/struts-jquery-tags" prefix="sj"%>
+    <%@ taglib prefix="sx" uri="/struts-dojo-tags" %>
+    
     <head>
         <sj:head compressed="false"/>
         <title>JSP Page</title>
         <link rel='stylesheet' type='text/css' href="${pageContext.request.contextPath}/View/style.css" />
-
-        <script type='text/javascript' src='${pageContext.request.contextPath}/View/infogrid.js'></script>   
+       
+        <script type='text/javascript' src='${pageContext.request.contextPath}/View/infogrid.js'></script>  
+           
+            
     </head>
     <body>
         <s:form action="reservar">
                         
-            <s:select 
-                
-                label="Hotel"  
-                list="listaHoteles"  
-                name="idHotel" 
-                listValue="nombre"  
-                listKey="idHotel"
-                emptyOption="false"  
-                headerKey="None"  
-                headerValue="None"
-                
-                accesskey=""/>
+            <s:label value="%{nombreHotel}" />
             
             <s:select 
                 
                 label="Cliente"  
                 list="listaClientes"  
-                name="idHotel" 
+                name="idCliente" 
                 listValue="nombre"  
                 listKey="idCliente"
                 emptyOption="nombre"  
@@ -44,12 +37,26 @@
                 headerValue="None"
                 
                 accesskey=""/>
-            <s:textfield label="Nombre:" name="cliente.nombre"/>
+            
+            <s:select 
+                
+                label="Habitacion a reservar"  
+                list="listaHabitaciones"  
+                name="reserva.idHabitacion" 
+                listValue="numeroHabitacion"  
+                listKey="idHabitacion"
+                emptyOption="numeroHabitacion"  
+                headerKey="None"  
+                headerValue="None"
+                
+                accesskey=""/>
             <s:textfield label="Direccion:" name="cliente.direccion"/>
-            <s:textfield label="Telefono residencia:" name="cliente.telefono"/>
-            <s:textfield label="Celular:" name="cliente.celular"/>
-            <s:submit label="Ingresar Cliente" value="Añadir"/>
+            <sj:datepicker id="tiempoEntrada" label="Fecha entrada:" name="reserva.tiempoEntrada"/>
+            <sj:datepicker id="tiempoSalida" label="Fecha salida:" name="reserva.tiempoSalida"/>
+            <s:textfield label="Adelanto:" name="reserva.adelanto"/>
+            <s:submit label="Reservar" value="Añadir"/>
             
         </s:form>
+        <s:label value="%{msj}" />
     </body>
 </html>
