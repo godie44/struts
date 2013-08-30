@@ -140,10 +140,11 @@ public class HotelesAd implements IHoteles{
             _reserva.setEmpleados(e);
             _reserva.setClientes(c);
             sesion.save(_reserva);
+            
+            
+            
+            Reserva r = (Reserva)sesion.createQuery("from Reserva where idHabitacion="+_reserva.getIdHabitacion()+" and idCliente="+c.getIdCliente()+"").list().get(0);
             transaccion.commit();
-            
-            
-            Reserva r = (Reserva)sesion.createQuery("from Reserva where idHabitacion="+_reserva.getIdHabitacion()+" and tiempoEntrada="+_reserva.getTiempoEntrada()+"").list().get(0);
             return r;}
             else{return null;}
         }
