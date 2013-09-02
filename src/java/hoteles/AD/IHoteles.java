@@ -25,4 +25,5 @@ public interface IHoteles {
     public List<Hoteles> ListaHoteles();
     public ArrayList<Clientes> ListaClientes();
     public ArrayList<Habitacionxhotel> ListaHabXHotel(int idHotel);
+    public ArrayList<Reserva> ReservasXHabitacion(int _idHabitacion);
 }

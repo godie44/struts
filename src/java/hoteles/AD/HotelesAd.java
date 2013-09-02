@@ -160,10 +160,32 @@ public class HotelesAd implements IHoteles{
             Transaction transac;
             sesionl = HibernateUtil.getSessionFactory().getCurrentSession();
             transac = sesionl.beginTransaction();
-            
-            return (ArrayList<Habitacionxhotel>)sesionl.createQuery("from Habitacionxhotel where hoteles.idHotel="+_idHotel).list();
+            ArrayList<Habitacionxhotel> habXHot = (ArrayList<Habitacionxhotel>)sesionl.createQuery("from Habitacionxhotel where hoteles.idHotel="+_idHotel).list();
+            transac.commit();
+            return habXHot; 
         }catch(Exception ex){
             return null;
+        }
+    }
+    
+    @Override
+    public ArrayList<Reserva> ReservasXHabitacion(int _idHabitacion)
+    {
+        try{
+            Session sesionl;
+            Transaction transac;
+            sesionl = HibernateUtil.getSessionFactory().getCurrentSession();
+            transac = sesionl.beginTransaction();
+            ArrayList<Reserva> resXHab = (ArrayList<Reserva>)sesionl.createQuery("from Habitacionxhotel where hoteles.idHotel="+_idHabitacion).list();
+            transac.commit();
+            return resXHab; 
+            
+        }catch(Exception ex){
+            return null;
+        }
+        finally
+        {
+            
         }
     }
     
